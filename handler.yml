@@ -1,0 +1,43 @@
+---
+- name: installg lamp
+  hosts: webservers
+  become: root
+
+  tasks:
+          - name: install lamp
+            apt:
+                    name:
+                            - apache2
+                            - mariadb-server
+                            - mariadb-client
+                            - php
+                            - php-mysql
+                    state: present
+          - name: starting httpd
+            service:
+                    name: apache2
+                    enabled: yes
+                    state: started
+          - name: starting mysql
+
+            service:
+                    name: mysqld
+                    enabled: yes
+                    state: started
+          - name: copy index.php to destination document root
+            
+            copy:
+                    src: /home/franclin/Desktop/project/index.php
+                    dest: /var/www/html
+            notify:
+                    - restart httpd service
+                    
+
+
+  handlers:
+          - name: restart httpd service
+            service:
+                    name: apache2
+                    state: restarted
+
+
