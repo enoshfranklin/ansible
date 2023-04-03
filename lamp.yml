@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 - name: installing lamp
-=======
-- name: installg lamp
->>>>>>> lamp modified
   hosts: webservers
   become: root
 
