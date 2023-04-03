@@ -4,7 +4,7 @@
   become: root
 
   tasks:
-          - name: instwebservers lamp
+          - name: install lamp
             apt:
                     name:
                             - apache2
