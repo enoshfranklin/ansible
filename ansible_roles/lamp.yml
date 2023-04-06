@@ -1,0 +1,8 @@
+---
+- name: install lamp
+  hosts: all
+  become: root
+
+  roles:
+          - install
+          - copy  

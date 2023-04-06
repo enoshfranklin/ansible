@@ -1,0 +1,10 @@
+---
+# tasks file for copy
+
+- name: copy files
+  copy:
+          src: /home/franclin/Desktop/project/index.php
+          dest: /var/www/html
+  notify:
+          - update
+

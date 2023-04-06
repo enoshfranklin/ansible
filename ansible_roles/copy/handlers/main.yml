@@ -1,0 +1,7 @@
+---
+# handlers file for copy
+- name: update
+  service:
+          name: apache2
+          state: restarted
+
